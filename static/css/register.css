@@ -1,0 +1,256 @@
+*,
+p,
+input {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+a,
+a:visited {
+    color: #000;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+.w {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.header {
+    background-color: #fff;
+    height: 60px;
+    border-bottom: 1px solid #c4c4c4;
+}
+
+.header .logo {
+    float: left;
+    width: 120px;
+    height: auto;
+}
+
+.header .logo img {
+    width: 100%;
+    height: 100%;
+    margin-top: 11px;
+}
+
+.header .nav,
+.header ul li {
+    float: left;
+}
+
+.header ul li {
+    margin: 0 15px;
+    font-size: 13px;
+    height: 40px;
+    line-height: 40px;
+    margin-top: 5px;
+}
+
+.header ul li ul {
+    position: absolute;
+    left: -9999px;
+    margin-top: 2px;
+    width: 140px;
+    height: 120px;
+    background-color: #d5d5d5;
+    /* display: flex;
+    flex-direction: column;
+    justify-content: space-around; */
+    float: none;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, .3);
+    z-index: 9999;
+    background-color: #e2e2e2;
+
+}
+
+.header ul li:hover {
+    border-bottom: 2px solid #4d4945;
+}
+
+
+.header ul li:nth-child(4):hover ul {
+    left: auto;
+    transition: left .5s .5s;
+}
+
+.header ul li ul li,
+.nav ul li ul li:hover {
+    height: 30px;
+    line-height: 30px;
+    margin-top: 0;
+    float: none;
+    border-bottom: 0;
+    margin: 0;
+    padding-left: 20px;
+}
+
+.header ul li ul li:hover {
+    background-color: #b8b8b8;
+}
+
+.header ul li ul li a {
+    display: block;
+    width: 100%;
+    font-weight: 400;
+    font-size: 12px;
+}
+
+.header .search {
+    float: right;
+}
+
+.header .search {
+    margin-top: 12px;
+    position: relative;
+}
+
+.header .search input {
+    font-size: 12px;
+    color: rgb(143, 138, 138);
+    width: 200px;
+    height: 30px;
+    margin-right: 45px;
+    padding-left: 5px;
+
+}
+
+.header .search .icon-large {
+    position: absolute;
+    top: 0;
+    left: 200px;
+    width: 40px;
+    height: 30px;
+    background-color: #ec0c3c;
+    color: #fff;
+    border: 1px solid rgb(255, 50, 84);
+    border-radius: 1px;
+    text-align: center;
+    line-height: 24px;
+
+}
+
+.header .search .icon-shopping-cart {
+    display: inline-block;
+    font-size: 20px;
+    color: #fff;
+}
+
+.header .search span {
+    color: #fff;
+}
+
+.cart {
+    background-color: #ec0c3c;
+    float: right;
+    height: 30px;
+    width: 80px;
+    text-align: center;
+    line-height: 32px;
+    border-radius: 4px;
+}
+
+/* 注册区域 */
+.register {
+    margin: 50px auto;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 9 0px;
+    margin-bottom: 150px;
+}
+
+.register h2 {
+    margin-top: -30px;
+}
+
+.register label {
+    width: 100px;
+    text-align: right;
+    font-weight: 400;
+    color: #000;
+}
+
+.register input {
+    height: 40px;
+    width: 300px;
+}
+
+.number .text {
+    width: 150px;
+}
+
+.number {
+    margin-right: 27px;
+}
+
+.number input:nth-child(3) {
+    width: 120px;
+    font-size: 13px;
+}
+
+.register .deal {
+    margin-left: 54px;
+}
+
+.register .deal p {
+    display: inline-block;
+}
+
+.register .deal input {
+    width: 15px;
+    height: 15px;
+    float: left;
+    vertical-align: middle;
+    margin-right: 5px;
+
+}
+
+.register .deal a {
+    display: inline-block;
+    text-decoration: underline !important;
+    color: #1270cf;
+}
+
+.btn a {
+    display: inline-block;
+    width: 200px;
+    height: 40px;
+    background-color: rgb(238, 30, 30);
+    line-height: 40px;
+    text-align: center;
+    color: #fff;
+    margin-left: 5px;
+}
+
+/* 底部区域 */
+.footer {
+    background-color: #c4c4c4;
+    height: 60px;
+    color: #36332e;
+    font-size: 13px;
+}
+
+.footer .w {
+    padding: 10px 4px;
+}
+
+.footer .w {
+    padding: 10px 4px;
+}
+
+.footer a {
+    color: #36332e;
+}
+
+.footer a:hover {
+    color: #eb55f0;
+}

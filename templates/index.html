@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>logo商城</title>
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/style.css"/>
+
+
+</head>
+<body>
+<!-- 头部 -->
+<div id="top">
+    <div class="top-tab">
+        <div class="top-tab-left">
+
+            {% if session['logged_in'] %}
+            <span>您好，欢迎{{session['username']}}来到<span style="color: #757573;">电器商城</span>
+					&nbsp;<a href="/logout">[退出]</a>  <a href="/bashboard">[商品管理]</a></span>
+            {% else %}
+            <span>您好，欢迎进入<span style="color: #757573;">电器商城</span>
+				&nbsp;&nbsp;<a href="/login">[登录]</a> &nbsp;&nbsp;<a href="/register">[注册]</a></span>
+            {% endif %}
+        </div>
+        <div class="top-tab-right">
+            <div class="tab-right-item">
+                <span>我的商城</span>
+                <img src="/static/image/triangle.png">
+            </div>
+            <span class="line">|</span>
+            <div class="tab-right-item">
+                <span>卖家中心</span>
+                <img src="/static/image/triangle.png">
+            </div>
+            <span class="line">|</span>
+            <div class="tab-right-item">我的订单</div>
+            <span class="line">|</span>
+            <div class="tab-right-item collect">
+                <span>我的收藏</span>
+                <img src="/static/image/triangle.png">
+                <div class="collect-content">
+                    <div>收藏的商品</div>
+                    <div>收藏的店铺</div>
+                </div>
+            </div>
+            <span class="line">|</span>
+            <div class="tab-right-item">站内消息</div>
+            <span class="line">|</span>
+            <div class="tab-right-item more">
+                <span>更多链接</span>
+                <img src="/static/image/triangle.png">
+                <div class="more-content">
+                    <div>商家入驻</div>
+                    <div>商家帮助</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="top-content normal">
+        <div class="top-content-left"><span class="logo-shop">logo商城</span></div>
+        <div class="top-content-center">
+            <div style="width: 100%;">
+                <div class="top-centent-search">
+                    <input type="search" name="" class="search" value=""/>
+                    <div class="text"><span>搜索</span></div>
+                    <!-- <span>搜索</span> -->
+                </div>
+                <div class="top-centent-list">
+                    <span>笔记本电脑</span>
+                    <span>女装</span>
+                    <span>0元使用</span>
+                </div>
+            </div>
+        </div>
+        <div class="top-content-right">
+            <div style="padding:10px;border:2px solid #cacaca;display: inline-block;">
+                <div class="my-cart">
+                    <div class="nc_topbar"><img src="/static/image/nc_topbar.gif"/></div>
+                    <div class="text">我的购物车</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 内容 -->
+<div id="middle">
+    <div class="middle-tab">
+        <ul class="middle-tab-list">
+            <li>全部商品分类</li>
+            <li>首页</li>
+            <li>品牌团</li>
+            <li>会员汇</li>
+            <li>合伙人招募</li>
+        </ul>
+    </div>
+    <div class="middle-content normal">
+        <div class="middle-content-left">
+            <ul>
+                <li class="left-menu-list " id="item1"><span class="text">家用电器</span><span class="arrow">></span></li>
+                <li class="left-menu-list " id="item2"><span class="text">手机、数码、京东通信</span><span class="arrow">></span>
+                </li>
+                <li class="left-menu-list"><span class="text">电脑、办公</span><span class="arrow">></span></li>
+                <li class="left-menu-list"><span class="text">家居、家居、家装、厨具</span><span class="arrow">></span></li>
+                <li class="left-menu-list"><span class="text">男装、女装、内衣、珠宝</span><span class="arrow">></span></li>
+                <li class="left-menu-list"><span class="text">个护洗化</span><span class="arrow">></span></li>
+                <li class="left-menu-list"><span class="text">鞋靴、箱包、中标、奢侈品</span><span class="arrow">></span></li>
+                <li class="left-menu-list"><span class="text">运动户外</span><span class="arrow">></span></li>
+                <li class="left-menu-list"><span class="text">汽车、汽车用品</span><span class="arrow">></span></li>
+                <li class="left-menu-list"><span class="text">母婴、玩具乐器</span><span class="arrow">></span></li>
+                <li class="left-menu-list"><span class="text">食品饮料</span><span class="arrow">></span></li>
+                <li class="left-menu-list"><span class="text">营养保健</span><span class="arrow">></span></li>
+                <li class="left-menu-list"><span class="text">彩票、旅行、重置、票务</span><span class="arrow">></span></li>
+                <li class="left-menu-list"><span class="text">理财、众筹、白条、保险</span><span class="arrow">></span></li>
+            </ul>
+        </div>
+        <div class="middle-content-center">
+            <div class="swiper">
+                <div class="swiper-content">
+                    <ul id="item">
+                        <li class="swiper-item">
+                            <a href="#"><img src="/image/flex1.jpg"/></a>
+                        </li>
+                        <li class="swiper-item">
+                            <a href="#"><img src="/static/image/flex2.jpg"/></a>
+                        </li>
+                        <li class="swiper-item">
+                            <a href="#"><img src="/static/image/flex3.jpg"/></a>
+                        </li>
+                        <li class="swiper-item">
+                            <a href="#"><img src="/static/image/flex4.jpg"/></a>
+                        </li>
+                        <li class="swiper-item">
+                            <a href="#"><img src="/static/image/flex3.jpg" style="width:100%;"/></a>
+                        </li>
+                    </ul>
+                    <div id="btn-left"><</div>
+                    <div id="btn-right">></div>
+                    <ul id="circle">
+                        <li class="circle"></li>
+                        <li class="circle"></li>
+                        <li class="circle"></li>
+                        <li class="circle"></li>
+                        <li class="circle"></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="item1">
+                <img src="/static/image/item1.png"/>
+            </div>
+            <div class="item2">
+                <img src="/static/image/item2.png"/>
+            </div>
+        </div>
+        <div class="middle-content-right">
+            <div class="nc-home-index">
+                <div>
+                    <div class="icon icon-style1"></div>
+                    <a href="/login"><span class="text">会员登录</span></a>
+
+                </div>
+                <div>
+                    <div class="icon icon-style2"></div>
+                    <a href="/register"><span class="text">免费注册</span></a>
+                </div>
+                <div>
+                    <div class="icon icon-style3"></div>
+                    <span class="text">商家开店</span>
+                </div>
+            </div>
+            <div class="content-right-message">
+                <div class="msg-tab">
+                    <span>XXX快报</span>
+                    <span>更多></span>
+                </div>
+                <div class="msg-content">
+                    <div><span class="text">[公告]</span>&nbsp;商家免费入住商城</div>
+                    <div><span class="text">[特惠]</span>&nbsp;端午节抢粽子啦</div>
+                    <div><span class="text">[公告]</span>&nbsp;商家免费入住商城</div>
+                    <div><span class="text">[特惠]</span>&nbsp;端午节抢粽子啦</div>
+                    <div><span class="text">[公告]</span>&nbsp;商家免费入住商城</div>
+                    <div><span class="text">[特惠]</span>&nbsp;端午节抢粽子啦</div>
+                </div>
+            </div>
+            <div class="ebanner">
+                <img src="/static/image/ebanner.png"/>
+            </div>
+        </div>
+    </div>
+    <div class="middle-bottom normal">
+        <li>
+            <img src="/static/image/rec.png" class="mb-img"/>
+        </li>
+        <li>
+            <img src="/static/image/rec1.png" class="mb-img"/>
+        </li>
+        <li>
+            <img src="/static/image/rec2.png" class="mb-img"/>
+        </li>
+        <li>
+            <img src="/static/image/rec3.png" class="mb-img"/>
+        </li>
+        <li>
+            <img src="/static/image/rec1.png" class="mb-img"/>
+        </li>
+    </div>
+</div>
+<!-- 猜你喜欢 -->
+<div id="like" class="normal">
+    <div class="like-tab">
+        <!-- ... -->
+    </div>
+    <ul class="product-list">
+    {% for product_temp in comment_products %}
+    <li style="display: inline-block; vertical-align: top; margin-right: 10px;">
+        <a href="#" target="_blank" class="comment_product">
+            <img src="{{ product_temp.images }}" width="170" height="170" style="display: block;"/>
+            <div>
+                <span class="product_title">{{ product_temp.pname }}</span>
+                <span class="price">价格为： ￥ {{ product_temp.new_price }}元</span>
+            </div>
+        </a>
+    </li>
+    {% endfor %}
+    </ul>
+</div>
+<!-- 1F家用电器 -->
+<div id="oneF" class="normal">
+    <div class="oneF-tab">
+        <div class="tab-title">1F家用电器</div>
+        <div class="tab-list">
+            <div class="one-tab-item-out active">
+                <div>家用电器</div>
+            </div>
+            <div class="one-tab-item-out ">
+                <div>大家电</div>
+            </div>
+            <div class="one-tab-item-out ">
+                <div>生活电器</div>
+            </div>
+            <div class="one-tab-item-out ">
+                <div>小家电</div>
+            </div>
+        </div>
+    </div>
+    <div class="oneF-content">
+        <div class="oneF-left">
+            <img src="/static/image/1fbanner.png"/>
+            <div>
+                <table class="left-center">
+                    <tr class="col">
+                        <td class="item">
+                            <div class=" icon item-icon1"></div>
+                            <span class="item-text">手机</span>
+                        </td>
+                        <td class="item">
+                            <div class=" icon item-icon2"></div>
+                            <span class="item-text">大家电</span>
+                        </td>
+                    </tr>
+                    <tr class="col">
+                        <td class="item">
+                            <div class="icon item-icon2"></div>
+                            <span class="item-text">家用电器</span>
+                        </td>
+                        <td class="item">
+                            <div class="icon item-icon1"></div>
+                            <span class="item-text">手机</span>
+                        </td>
+                    </tr>
+                </table>
+                <table class="left-bottom">
+                    <tr class="lb-item1">
+                        <td>
+                            <div>三星矩惠全家福</div>
+                            <div>移动电源品质联盟</div>
+                        </td>
+                        <td>
+                            <div>逛商城赚千元话费</div>
+                            <div>手机月末大促</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <table>
+                                <tr>
+                                    <td>电饭煲&nbsp;&nbsp;&nbsp;&nbsp;数码</td>
+                                </tr>
+                                <tr>
+                                    <td>手机&nbsp;&nbsp;&nbsp;&nbsp;电磁炉</td>
+                                </tr>
+                                <tr>
+                                    <td>洗衣机&nbsp;&nbsp;&nbsp;&nbsp;数码</td>
+                                </tr>
+                                <tr>
+                                    <td>挂烫机&nbsp;&nbsp;&nbsp;&nbsp;数码</td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td>
+                            <table>
+                                <tr>
+                                    <td>电饭煲&nbsp;&nbsp;&nbsp;&nbsp;数码</td>
+                                </tr>
+                                <tr>
+                                    <td>手机&nbsp;&nbsp;&nbsp;&nbsp;电磁炉</td>
+                                </tr>
+                                <tr>
+                                    <td>洗衣机&nbsp;&nbsp;&nbsp;&nbsp;数码</td>
+                                </tr>
+                                <tr>
+                                    <td>挂烫机&nbsp;&nbsp;&nbsp;&nbsp;数码</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="oneF-right">
+            <div class="right-content">
+                <div class="imgs-item"><img src="/static/image/list1.png" class="list-item"/></div>
+                <div class="imgs-item"><img src="/static/image/list3.png" class="list-item"/></div>
+                <div class="imgs-item"><img src="/static/image/list1.png" class="list-item"/></div>
+            </div>
+            <div class="right-content">
+                <div class="imgs-item"><img src="/static/image/list3.png" class="list-item"/></div>
+                <div class="imgs-item"><img src="/static/image/list1.png" class="list-item"/></div>
+                <div class="imgs-item"><img src="/static/image/list3.png" class="list-item"/></div>
+            </div>
+        </div>
+    </div>
+    <div id="splite-line">
+        <!-- <div class="img"></div> -->
+        <div><img src="/static/image/brand1.jpg"/></div>
+        <div><img src="/static/image/brand1.jpg"/></div>
+        <div><img src="/static/image/brand1.jpg"/></div>
+        <div><img src="/static/image/brand1.jpg"/></div>
+        <div><img src="/static/image/brand1.jpg"/></div>
+        <div><img src="/static/image/brand1.jpg"/></div>
+        <div><img src="/static/image/brand1.jpg"/></div>
+        <div><img src="/static/image/brand1.jpg"/></div>
+        <div><img src="/static/image/brand1.jpg"/></div>
+        <div><img src="/static/image/brand1.jpg"/></div>
+        <div><img src="/static/image/brand1.jpg"/></div>
+    </div>
+</div>
+<!-- 2F美容化妆 -->
+<div id="oneF" class="normal twoF">
+    <div class="twoF-tab">
+        <div class="tab-title two">2F美容化妆</div>
+        <div class="tab-list twoF">
+            <div class="two-tab-item-out active">
+                <div>国际大牌</div>
+            </div>
+            <div class="two-tab-item-out ">
+                <div>护肤品</div>
+            </div>
+            <div class="two-tab-item-out ">
+                <div>个人护理</div>
+            </div>
+            <div class="two-tab-item-out ">
+                <div>彩妆</div>
+            </div>
+            <div class="two-tab-item-out ">
+                <div>彩妆</div>
+            </div>
+            <div class="two-tab-item-out ">
+                <div>热销面膜</div>
+            </div>
+            <div class="two-tab-item-out ">
+                <div>珠宝首饰</div>
+            </div>
+            <div class="two-tab-item-out ">
+                <div>男士护肤</div>
+            </div>
+        </div>
+    </div>
+    <div class="oneF-content">
+        <div class="oneF-left">
+            <img src="/static/image/2fbanner.png"/>
+            <div>
+                <table class="left-center" style="background-color: #f0d6fd;">
+                    <tr class="col">
+                        <td class="item">
+                            <div class=" icon item-icon1"></div>
+                            <span class="item-text">手机</span>
+                        </td>
+                        <td class="item">
+                            <div class=" icon item-icon2"></div>
+                            <span class="item-text">大家电</span>
+                        </td>
+                    </tr>
+                    <tr class="col">
+                        <td class="item">
+                            <div class="icon item-icon2"></div>
+                            <span class="item-text">家用电器</span>
+                        </td>
+                        <td class="item">
+                            <div class="icon item-icon1"></div>
+                            <span class="item-text">手机</span>
+                        </td>
+                    </tr>
+                </table>
+                <table class="left-bottom" style="background-color: #f5e6fd;">
+                    <tr class="lb-item1">
+                        <td>
+                            <div>三星矩惠全家福</div>
+                            <div>移动电源品质联盟</div>
+                        </td>
+                        <td>
+                            <div>逛商城赚千元话费</div>
+                            <div>手机月末大促</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <table>
+                                <tr>
+                                    <td>电饭煲&nbsp;&nbsp;&nbsp;&nbsp;数码</td>
+                                </tr>
+                                <tr>
+                                    <td>手机&nbsp;&nbsp;&nbsp;&nbsp;电磁炉</td>
+                                </tr>
+                                <tr>
+                                    <td>洗衣机&nbsp;&nbsp;&nbsp;&nbsp;数码</td>
+                                </tr>
+                                <tr>
+                                    <td>挂烫机&nbsp;&nbsp;&nbsp;&nbsp;数码</td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td>
+                            <table>
+                                <tr>
+                                    <td>电饭煲&nbsp;&nbsp;&nbsp;&nbsp;数码</td>
+                                </tr>
+                                <tr>
+                                    <td>手机&nbsp;&nbsp;&nbsp;&nbsp;电磁炉</td>
+                                </tr>
+                                <tr>
+                                    <td>洗衣机&nbsp;&nbsp;&nbsp;&nbsp;数码</td>
+                                </tr>
+                                <tr>
+                                    <td>挂烫机&nbsp;&nbsp;&nbsp;&nbsp;数码</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="oneF-right">
+            <div class="right-content">
+                <div class="imgs-item"><img src="/static/image/list1.png" class="list-item"/></div>
+                <div class="imgs-item"><img src="/static/image/list2.png" class="list-item"/></div>
+                <div class="imgs-item"><img src="/static/image/list1.png" class="list-item"/></div>
+            </div>
+            <div class="right-content">
+                <div class="imgs-item"><img src="/static/image/list2.png" class="list-item"/></div>
+                <div class="imgs-item"><img src="/static/image/list1.png" class="list-item"/></div>
+                <div class="imgs-item"><img src="/static/image/list2.png" class="list-item"/></div>
+            </div>
+        </div>
+    </div>
+    <div id="splite-line">
+        <!-- <div class="img"></div> -->
+        <div><img src="/static/image/brand1.jpg"/></div>
+        <div><img src="/static/image/brand1.jpg"/></div>
+        <div><img src="/static/image/brand1.jpg"/></div>
+        <div><img src="/static/image/brand1.jpg"/></div>
+        <div><img src="/static/image/brand1.jpg"/></div>
+        <div><img src="/static/image/brand1.jpg"/></div>
+        <div><img src="/static/image/brand1.jpg"/></div>
+        <div><img src="/static/image/brand1.jpg"/></div>
+        <div><img src="/static/image/brand1.jpg"/></div>
+        <div><img src="/static/image/brand1.jpg"/></div>
+        <div><img src="/static/image/brand1.jpg"/></div>
+    </div>
+</div>
+<!-- 今日精品 -->
+<div id="boutique" class="normal">
+    <div class="boutique-tab">今日精品</div>
+    <div class="boutique-content">
+        <div class="content-left content-san">
+            <img src="/static/image/spec1.jpg"/>
+            <div class="msg">
+                <span> FaSoLa日本品牌防紫外线太阳伞&nbsp;黑胶防</span>
+                <div class="msg-text"><span>商城价：</span><span class="price">249元</span></div>
+            </div>
+        </div>
+        <div class=" bags-content">
+            <div class="content-center-item">
+                <div class="bags-item">
+                    <div class="bags-item-img"><img src="/static/image/spec-1.jpg" class="bag-img"/></div>
+                    <div class="bags-item-info">
+                        <span class="bag-text">北极绒家纺&nbsp;保健枕&nbsp;护颈枕&nbsp;五星酒店枕头纤丝绒枕</span>
+                        <div><span class="scj">商城价：</span><span class="bag-price">198</span></div>
+                    </div>
+                </div>
+                <div class="bags-item">
+                    <div class="bags-item-img"><img src="/static/image/spec-2.jpg" class="bag-img"/></div>
+                    <div class="bags-item-info">
+                        <span class="bag-text">北极绒家纺&nbsp;保健枕&nbsp;护颈枕&nbsp;五星酒店枕头纤丝绒枕</span>
+                        <div><span class="scj">商城价：</span><span class="bag-price">198</span></div>
+                    </div>
+                </div>
+                <div class="bags-item">
+                    <div class="bags-item-img"><img src="/static/image/spec-2.jpg" class="bag-img"/></div>
+                    <div class="bags-item-info">
+                        <span class="bag-text">北极绒家纺&nbsp;保健枕&nbsp;护颈枕&nbsp;五星酒店枕头纤丝绒枕</span>
+                        <div><span class="scj">商城价：</span><span class="bag-price">198</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="content-center-item content-center-item-bottom">
+                <div class="bags-item">
+                    <div class="bags-item-img"><img src="/static/image/spec-2.jpg" class="bag-img"/></div>
+                    <div class="bags-item-info">
+                        <span class="bag-text">北极绒家纺&nbsp;保健枕&nbsp;护颈枕&nbsp;五星酒店枕头纤丝绒枕</span>
+                        <div><span class="scj">商城价：</span><span class="bag-price">198</span></div>
+                    </div>
+                </div>
+                <div class="bags-item">
+                    <div class="bags-item-img"><img src="/static/image/spec-2.jpg" class="bag-img"/></div>
+                    <div class="bags-item-info">
+                        <span class="bag-text">北极绒家纺&nbsp;保健枕&nbsp;护颈枕&nbsp;五星酒店枕头纤丝绒枕</span>
+                        <div><span class="scj">商城价：</span><span class="bag-price">198</span></div>
+                    </div>
+                </div>
+                <div class="bags-item">
+                    <div class="bags-item-img"><img src="/static/image/spec-2.jpg" class="bag-img"/></div>
+                    <div class="bags-item-info">
+                        <span class="bag-text">北极绒家纺&nbsp;保健枕&nbsp;护颈枕&nbsp;五星酒店枕头纤丝绒枕</span>
+                        <div><span class="scj">商城价：</span><span class="bag-price">198</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content-right">
+            <div class="content-right-item">
+                <div class="content-right-item-left"><img src="/static/image/spec-2.jpg"/></div>
+                <div class="content-right-item-right">
+                    <img src="/static/image/spec-2.jpg"/><span style="position:relative;bottom:15px;">lovelove</span>
+                    <div style="background-color:#eae7e7;letter-spacing: 1px;padding:5px;">太好吃了！美味！下次还要买，下次还要买下次还要买
+                    </div>
+                </div>
+            </div>
+            <div class="content-right-item">
+                <div class="content-right-item-left"><img src="/static/image/spec-2.jpg"/></div>
+                <div class="content-right-item-right">
+                    <img src="/static/image/spec-2.jpg"/><span style="position:relative;bottom:15px;">lovelove</span>
+                    <div style="background-color:#eae7e7;letter-spacing: 1px;padding:5px;">太好吃了！美味！下次还要买，下次还要买下次还要买
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 底部 -->
+<div id="bottom" class="normal">
+    <div class="bot-item">
+        <div class="title">账户管理</div>
+        <div class="content">
+            <div>如何安全登录</div>
+            <div>忘记密码</div>
+        </div>
+    </div>
+    <div class="bot-item">
+        <div class="title">卖家服务</div>
+        <div class="content">
+            <div>关于商城VIP店</div>
+            <div>淘宝商品导入</div>
+        </div>
+    </div>
+    <div class="bot-item">
+        <div class="title">消费者保障</div>
+        <div class="content">
+            <div>XXX商城VIP店</div>
+            <div>消费者保障服</div>
+        </div>
+    </div>
+    <div class="bot-item">
+        <div class="title">支付方式</div>
+        <div class="content">
+            <div>账户余额支付</div>
+            <div>渤海易生</div>
+        </div>
+    </div>
+    <div class="bot-item">
+        <div class="title">特色服务</div>
+        <div class="content">
+            <div>店铺优惠券</div>
+            <div></div>
+        </div>
+    </div>
+    <div class="bot-item">
+        <div class="title">XXX介绍</div>
+        <div class="content">
+            <div>关于我们</div>
+            <div>招聘英才</div>
+        </div>
+    </div>
+</div>
+
+<div class="slideshow-container">
+
+    <div class="slide fade">
+        <img src="/static/image/list1.png">
+    </div>
+
+    <div class="slide fade">
+        <img src="image2.jpg" style="width:100%">
+    </div>
+
+    <div class="slide fade">
+        <img src="image3.jpg" style="width:100%">
+    </div>
+
+    <!-- 更多的幻灯片... -->
+
+</div>
+</body>
+</html>

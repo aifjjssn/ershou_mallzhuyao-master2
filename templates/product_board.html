@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>logo商城</title>
+	<link rel="stylesheet" href="/static/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/static/css/style.css" />
+
+
+
+</head>
+<body>
+	<!-- 头部 -->
+	<div id="top">
+		<div class="top-tab">
+			<div class="top-tab-left">
+
+			   {% if session['logged_in'] %}
+				<span>您好，欢迎{{session['username']}}来到<span style="color: #757573;">电器商城</span>
+					&nbsp;<a href="/logout">[退出]</a>  <a href="/bashboard">[商品管理]</a></span>
+				{% else %}
+				<span>您好，欢迎进入<span style="color: #757573;">电器商城</span>
+				&nbsp;&nbsp;<a href="/login">[登录]</a> &nbsp;&nbsp;<a href="/register">[注册]</a></span>
+				{% endif %}
+			</div>
+			<div class="top-tab-right">
+				<div class="tab-right-item">
+					<span>我的商城</span>
+					<img src="/static/image/triangle.png">
+				</div>
+				<span class="line">|</span>
+				<div class="tab-right-item">
+					<span>卖家中心</span>
+					<img src="/static/image/triangle.png">
+				</div>
+				<span class="line">|</span>
+				<div class="tab-right-item">我的订单</div>
+				<span class="line">|</span>
+				<div class="tab-right-item collect">
+					<span>我的收藏</span>
+					<img src="/static/image/triangle.png">
+					<div class="collect-content">
+						<div>收藏的商品</div>
+						<div>收藏的店铺</div>
+					</div>
+				</div>
+				<span class="line">|</span>
+				<div class="tab-right-item">站内消息</div>
+				<span class="line">|</span>
+				<div class="tab-right-item more">
+					<span>更多链接</span>
+					<img src="/static/image/triangle.png">
+					<div class="more-content">
+						<div>商家入驻</div>
+						<div>商家帮助</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="top-content normal">
+			<div class="top-content-left"><span class="logo-shop"><a href="/huidaozhuye">logo商城</a></span></div>
+			<div class="top-content-center">
+				<div style="width: 100%;">
+					<div class="top-centent-search">
+						<input type="search" name="" class="search" value=""/>
+						<div class="text"><span>搜索</span></div>
+						<!-- <span>搜索</span> -->
+					</div>
+					<div class="top-centent-list">
+						<span>笔记本电脑</span>
+						<span>女装</span>
+						<span>0元使用</span>
+					</div>
+				</div>
+			</div>
+			<div class="top-content-right">
+				<div style="padding:10px;border:2px solid #cacaca;display: inline-block;">
+					<div class="my-cart">
+						<div class="nc_topbar"><img src="/static/image/nc_topbar.gif"/></div>
+						<div class="text">我的购物车</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% block title %}
+
+{% endblock %}
+
+{% block head %}
+    <link href="{{ url_for('static',filename='css/index.css') }}" rel="stylesheet" type="text/css"/>
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/ssi-uploader.css') }}">
+    <script type="text/javascript" src="{{ url_for('static',filename='js/index.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static',filename='js/jquery.jSlider.min.js') }}"></script>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/partialvxxiewslider.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/jSlider.min.css') }}">
+    <script src="{{ url_for('static',filename='js/login_mt.js') }}"></script>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/style_img.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='img_trans/default.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='img_trans/demo.css',v=2) }}">
+    <script type="text/javascript" src="{{ url_for('static',filename='js/dotdotdot.js') }}"></script>
+
+    <link href="{{ url_for('static', filename='css/bootstrap.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/clean-blog.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+{% endblock %}
+
+{% block main %}
+<div class="container content">
+  <h1>商品管理后台 <small> 欢迎 {{session.username}}</small>
+
+  </h1>
+  <hr>
+  <table class="table">
+    <tr>
+      <th>ID</th>
+      <th>商品名称</th>
+      <th>商品价格</th>
+      <th></th>
+      <th></th>
+    </tr>
+    {% for one_product in products %}
+      <tr>
+        <td> {{ one_product.id}}</td>
+        <td> {{ one_product.pname}}</td>
+        <td> {{ one_product.new_price}}</td>
+        <td><a href="#" class="btn btn-info" style="float:right">编辑</a></td>
+        <td>
+          <form action="{{url_for('delete_product',id=one_product.id)}}" method="post">
+            <input type="hidden" name="_method" value="DELETE">
+            <input type="submit" value="删除" class="btn btn-danger">
+          </form>
+        </td>
+      </tr>
+      {% endfor %}
+  </table>
+</div>
+
+    <a class="btn btn-success" href="/add_product" style="float:right">发布商品 </a>
+
+{% endblock %}
